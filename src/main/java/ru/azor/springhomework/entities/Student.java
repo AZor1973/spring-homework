@@ -24,9 +24,4 @@ public class Student {
 
     @Column(name = "age")
     private Integer age;
-
-    public Student(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
 }
