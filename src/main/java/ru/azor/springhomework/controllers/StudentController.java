@@ -47,7 +47,12 @@ public class StudentController {
 //    Тут нужно использовать метод POST или DELETE.
 //    Для использования метода DELETE в Spring MVC есть специальный hidden method filter.
 //    Почитайте, как его включить
-    @GetMapping("/delete/{id}")
+//    Сделано !!! = 1. Добавление (spring:mvc:hiddenmethod:filter:enable: true) в
+//                     application.yaml
+//                  2. В представлении вместо ссылки или кнопки - форма с
+//                     <input type="hidden" name="_method" value="DELETE"/>
+//    Так же для PUT.
+    @DeleteMapping("/delete/{id}")
     public String expelStudent(@PathVariable Long id) {
         service.expelStudentById(id);
         return "redirect:/students";

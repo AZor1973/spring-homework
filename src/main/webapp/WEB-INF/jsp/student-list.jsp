@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,8 +19,17 @@
                 <c:param name="id" value="${student.id}"/>
             </c:url>
             <a href="${updateUrl}">Update student</a>
-            <c:url var="deleteUrl" value="/students/delete/ + ${student.id}"></c:url>
-            <a href="${deleteUrl}">Delete student</a>
+
+
+<%--            <c:url var="deleteUrl" value="/students/delete/ + ${student.id}"></c:url>--%>
+<%--            <a href="${deleteUrl}">Delete student</a>--%>
+
+            <form:form action="students/delete/${student.id}">
+                <input type="hidden" name="_method" value="DELETE"/>
+                <input type="submit" value="Delete student">
+            </form:form>
+
+
         </li>
     </c:forEach>
 </ul>
