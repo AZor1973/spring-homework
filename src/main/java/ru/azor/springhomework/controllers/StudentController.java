@@ -42,6 +42,11 @@ public class StudentController {
         return "redirect:/students";
     }
 
+//    Метод GET использовать для удаления не правильно.
+//    Почитайте про безопасные и небезопасные HTTP методы.
+//    Тут нужно использовать метод POST или DELETE.
+//    Для использования метода DELETE в Spring MVC есть специальный hidden method filter.
+//    Почитайте, как его включить
     @GetMapping("/delete/{id}")
     public String expelStudent(@PathVariable Long id) {
         service.expelStudentById(id);
